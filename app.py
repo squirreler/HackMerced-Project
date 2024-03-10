@@ -15,7 +15,7 @@ def home():
 
 def process_form():
 
-    file_path = "C:\\Users\\anbha\\OneDrive\\Documents\\Projects\\chatbot\\messages.txt"
+    file_path = "messages.txt"
     msg = request.form['Message']
     
     out = ""
