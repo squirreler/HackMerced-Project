@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Flask App{% endblock %}</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        /* font */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=PT+Sans:wght@400;700&display=swap');
+        .pt-sans-regular {
+            font-family: "PT Sans", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .pt-sans-bold {
+            font-family: "PT Sans", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        /* Common CSS styles */
+
+        body{
+            background-image: linear-gradient(#B6C7F0, #C5B7F1, #DAB2F0);
+        }
+
+        .purple-section {
+            background-color: #7A62C9;
+            padding: 10px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropbtn {
+            background-color: transparent;
+            color: white;
+            padding: 12px 16px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5rem;
+            cursor: pointer;
+        }
+
+        .dropbtn:hover{
+            background-color: #9C88DE;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Background image */
+        .background-container {
+            position: relative;
+            height: calc(100vh - 70px); /* Adjust as needed to account for the height of the purple section */
+            overflow: hidden;
+        }
+        
+        .chatbox {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            bottom: 0;
+            gap: 0;
+
+        }
+        .background-image-2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        /* Parallax effect */
+        .background {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1000px; /* Adjust as needed */
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #messageInput{
+            background-color: #B6C7F0;
+            width: 38rem;
+            height: 3rem;
+            border-radius: 5rem 0 0 5rem;
+            border-color: solid #4529A0 2px;
+
+        }
+
+        #sendmsg{
+            background-color: #9C88DE;
+            border-radius: 0 5rem 5rem 0;
+            height: 3rem;
+            width: 5rem;
+        }
+
+        #sendmsg:hover{
+            cursor: pointer;
+        }
+
+        /* Text for parallax effect */
+        .parallax-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            color: white;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .text-container {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            top: 250px;
+            right: 10px;
+            border-radius: 10px;
+            padding: 0px;
+            max-width: 50%;
+            z-index: 1;
+            font-size: 22px;
+        }
+
+        /* New section styles */
+        .new-section {
+            padding: 20px;
+            background-color: #f9f9f9;
+            margin-top: 20px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1><center>Website Name</center></h1>
+    
+    <!-- Color bar -->
+    <div class="color-bar"></div>
+    
+    <!-- Purple section for different tabs -->
+    <div class="purple-section">
+        <!-- Dropdown for resources -->
+        <div class="dropdown">
+            <button class="dropbtn">Resources</button>
+            <div class="dropdown-content">
+                <a href="#" id="outsideResourcesBtn">Outside Resources</a>
+                <a href="#">professional</a>
+            </div>
+        </div>
+        <!-- Dropdown for School Resources -->
+        <div class="dropdown">
+            <button class="dropbtn">School Resources</button>
+            <div class="dropdown-content">
+                <a href="https://shcs.ucdavis.edu/services/counseling-services" target="_blank">UC Davis</a>
+                <a href="https://uhs.berkeley.edu/mental-health" target="_blank">UC Berkeley</a>
+                <a href="https://caps.ucsc.edu" target="_blank">UC Santa Cruz</a>
+                <a href="https://wellbeing.ucsb.edu/mental-health" target="_blank">UC Santa Barbara</a>
+                <a href="https://www.studenthealth.ucla.edu/services/mental-health" target="_blank">UC Los Angeles</a>
+                <a href="https://studenthealth.ucsd.edu/services/mental-health/index.html" target="_blank">UC San Diego</a>
+                <a href="https://counseling.ucmerced.edu/" target="_blank">UC Merced</a>
+                <a href="https://shc.uci.edu/psychiatry-mental-health-services/online-mental-health-services" target="_blank">UC Irvine</a>
+                <a href="https://healthycampus.ucr.edu/sub-committees/mental-health" target="_blank">UC Riverside</a>
+                <!-- Add more schools as needed -->
+            </div>
+        </div>
+        <!-- Dropdown for chat -->
+        <div class="dropdown" id="chatDropdown">
+            <button class="dropbtn" onclick="toggleChat()">Chat</button>
+            <div class="dropdown-content" id="chatContent">
+                <!-- Chat interface -->
+                <div class="chat-container" id="chatContainer" style="display: none;">
+                    <!-- Messages will be displayed here -->
+                </div>
+                <!-- Input field for sending messages -->
+                <input type="text" id="messageInput" placeholder="Type your message..." style="display: none;">
+                <button onclick="sendMessage()" style="display: none;">Send</button>
+                <button onclick="disconnect()" style="display: none;">Disconnect</button>
+            </div>
+        </div>
+
+        <!-- Dropdown for Feedback -->
+        <div class="dropdown">
+            <button class="dropbtn">Feedback</button>
+            <div class="dropdown-content">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSf_nr6CRYfyoHeY_d6O6T3DVKiUL2Jisb84ejXRd2x0eXvNkw/viewform?usp=sf_link" target="_blank">Survey</a>
+            </div>
+        </div> 
+    </div> 
+
+    <div class="background">
+            <div class="chatbox">
+                        <input type="text" id="messageInput" placeholder="Type your message...">
+                        <button onclick="sendMessage()" id="sendmsg">Send</button>
+            </div>
+    </div>
+    
+
+
+<script>
+    // Get the button element
+    var outsideResourcesBtn = document.getElementById("outsideResourcesBtn");
+
+    // Add click event listener to the button
+    outsideResourcesBtn.addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent the default link behavior
+
+        // Redirect to the desired URL
+        window.location.href = "https://example.com/outside-resources"; 
+    });
+
+    function openChat() {
+        // Open the chat in a new window
+        window.open("https://your-chat-url.com", "_blank", "width=600,height=400");
+    }
+    </script>
+    
+
+
+
+</body>
+</html>

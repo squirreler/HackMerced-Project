@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Flask App{% endblock %}</title>
+    <style>
+        /* Common CSS styles */
+        .purple-section {
+            background-color: #6A65A5;
+            padding: 10px;
+            color:white;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropbtn {
+            background-color: transparent;
+            color: white;
+            padding: 12px 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Background image */
+        .background-image {
+            /* background-image: url('./images/background.jpg'); */
+            background-image: url('images/titles.j');
+            background-color: red;
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 200px;
+        }
+
+        /* New section styles */
+        .new-section {
+            padding: 20px;
+            background-color: #f9f9f9;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- JavaScript to toggle new section visibility -->
+    <script>
+        // Get the button and new section elements
+        var outsideResourcesBtn = document.getElementById("outsideResourcesBtn");
+        var outsideResourcesSection = document.getElementById("outsideResourcesSection");
+
+        // Show the new section when the Outside Resources button is clicked
+        outsideResourcesBtn.addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent the default link behavior
+            outsideResourcesSection.style.display = "block";
+        });
+    </script>
+</body>
+</html>
