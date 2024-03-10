@@ -13,7 +13,6 @@ def index():
 
 @app.route('/process_form', methods=['POST'])
 def process_form():
-    file_path = "C:\\Users\\anbha\\OneDrive\\Documents\\Projects\\chatbot\\messages.txt"
     msg = request.form['Message']
     out = ""
     client.client_f("Arc", msg, 1)
