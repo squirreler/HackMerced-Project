@@ -9,9 +9,7 @@ app = Flask(__name__, template_folder= 'templates')
 def home():
     return render_template("structure.html") 
 
-@app.route('/chat')
-def chat():
-    return render_template("st.html")
+
     
 @app.route('/process_form', methods=['POST'])
 
