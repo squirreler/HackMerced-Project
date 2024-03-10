@@ -217,20 +217,10 @@
                 <!-- Add more schools as needed -->
             </div>
         </div>
-        <!-- Dropdown for chat -->
-        <div class="dropdown" id="chatDropdown">
-            <button class="dropbtn" onclick="toggleChat()">Chat</button>
-            <div class="dropdown-content" id="chatContent">
-                <!-- Chat interface -->
-                <div class="chat-container" id="chatContainer" style="display: none;">
-                    <!-- Messages will be displayed here -->
-                </div>
-                <!-- Input field for sending messages -->
-                <input type="text" id="messageInput" placeholder="Type your message..." style="display: none;">
-                <button onclick="sendMessage()" style="display: none;">Send</button>
-                <button onclick="disconnect()" style="display: none;">Disconnect</button>
-            </div>
-        </div>
+<!-- Dropdown for chat -->
+<div class="dropdown" id="chatDropdown">
+    <button class="dropbtn" onclick="openChatTab()">Chat</button>
+</div>
         <!-- Dropdown for Feedback -->
         <div class="dropdown">
             <button class="dropbtn">Feedback</button>
@@ -285,6 +275,22 @@
             // Call the function to open Google Maps with the specified coordinates
             openGoogleMaps(latitude, longitude);
         });
+        function openChatTab() {
+            // Specify the URL of the chat page
+            var chatUrl = 'chat.html'; // Replace 'chat.html' with the actual URL of your chat page
+            
+            // Open the chat page in a new tab
+            window.open(chatUrl, '_blank');
+        }
+    
+        // Function to toggle the visibility of the chat box
+        function openChatTab() {
+            // Specify the URL of the chat page
+            var chatUrl = 'chat.html'; // Replace 'chat.html' with the actual URL of your chat page
+            
+            // Open the chat page in a new tab
+            window.open(chatUrl, '_blank');
+        }
     </script>
     
     
