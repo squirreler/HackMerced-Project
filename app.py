@@ -1,21 +1,12 @@
 from flask import Flask, render_template, request
-import client
+import client  # Assuming client_f is defined in this module
 
 app = Flask(__name__, template_folder='/Users/kevinwu/Desktop/Hackaton/')
-MESSAGES_FILE_PATH = "C:\\Users\\anbha\\OneDrive\\Documents\\Projects\\chatbot\\messages.txt"
 
+# Define routes
 @app.route('/')
-def index():
-    return render_template('index.html')
-
-@app.route('/process_form', methods=['POST'])
-def process_form():
-    msg = request.form.get('Message', '')
-    if msg:
-        client.client_f("Arc", msg, 1)
-        with open(MESSAGES_FILE_PATH, 'a') as f:
-            f.write("|" + msg + "|\n")
-    return render_template('index.html', msg=read_messages())
+def home():
+    return render_template("structure.html")
 
 @app.route('/chat')
 def chat():
@@ -23,18 +14,11 @@ def chat():
 
 @app.route('/send_message', methods=['POST'])
 def send_message():
-    user = request.form.get('user', '')
-    text_msg = request.form.get('text_msg', '')
-    if user and text_msg:
-        client_f(user, text_msg)
+    user = request.form['user']
+    text_msg = request.form['text_msg']
+    # Call your client_f function to send the message
+    client.client_f(user, text_msg)  # Corrected the function call
     return 'Message sent successfully'
-
-def read_messages():
-    try:
-        with open(MESSAGES_FILE_PATH, 'r') as f:
-            return f.read()
-    except FileNotFoundError:
-        return ''
 
 if __name__ == '__main__':
     app.run(debug=True)
