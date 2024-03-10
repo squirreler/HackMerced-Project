@@ -11,8 +11,10 @@ def home():
 
 @app.route('/chat')
 def chat():
-    return render_template("chat.html")
+    return render_template("index.html")
 
+def chat(): 
+    
 if __name__ == '__main__':
     app.run(debug = True)
 
