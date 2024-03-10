@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-import client  # Assuming client_f is defined in this module
 
 app = Flask(__name__, template_folder='templates')
 
