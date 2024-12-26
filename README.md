@@ -1,4 +1,4 @@
 # HackMerced-Project
-The thing for hackmerced
+Project for Hackmerced
 
 mindguide.tips.
